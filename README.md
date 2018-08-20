@@ -2,11 +2,11 @@
 Image Cut, Image Filter, Image Rotation
 
 ## 이미지 관련 기능 뷰 
-Image 
+### Image 
     - Cut, File Save
-Image Filter
+### Image Filter
     - Grey, Sepia, Edge, Aqua, Negative, Noise, SmearCross, Quantize, GaussianBlur, 뽀사시
-Image Rotation
+### Image Rotation
     -  Left, Right, Down
     
     
