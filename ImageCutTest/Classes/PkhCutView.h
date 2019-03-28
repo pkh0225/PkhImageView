@@ -33,6 +33,8 @@
 	UIImageView *cutImageView;
 	
 	NSInteger checkPont;
+    
+    CGRect orgRect;
 }
 
 @property(nonatomic, getter = getCutRect, readonly) CGRect cutRect;

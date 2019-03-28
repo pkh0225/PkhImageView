@@ -10,8 +10,6 @@
 #import "CGPointUtils.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define kScale 0.08 // 축소 확대 비율
-
 #define kMiniimumPinchDelta 15 //축소 확대의 OffSet 최소 값
 
 #define kImageWidth 9 // 축소 확대 좌표에 쓰일 이미지 Width
@@ -20,9 +18,12 @@
 #define kImageCutWidthMin 15 // 자를 이미지 최소 크기 width
 #define kImageCutHeightMin 15 // 자를 이미지 최소 크기 height
 
-#define kimageTouchOffSet 12 // 자를 이미지 축소 확대의 터치 이벤츠 offset값
+#define kimageTouchOffSet 15 // 자를 이미지 축소 확대의 터치 이벤츠 offset값
 
-@interface PkhCutView()
+@interface PkhCutView() {
+    BOOL zoomIn;
+    BOOL zoomOut;
+}
 
 // 뷰 기준의 사각형 좌료를 구한다.
 -(CGRect)getCutRect;
@@ -341,14 +342,27 @@
 			CGFloat currentDistance = distanceBetweenPoints( [first locationInView:self], [second locationInView:self] );
 			
 			if (initialDistance == 0)
+            {
 				initialDistance = currentDistance;
+                orgRect = CGRectMake(x, y, width, height);
+                zoomOut = NO;
+                zoomIn = NO;
+            }
 			else if (currentDistance - initialDistance > kMiniimumPinchDelta)
-			{// 확대
-				//				NSLog(@"currentDistance - initialDistance = %f", currentDistance - initialDistance);
-				CGFloat poswidth  = width * (1.0 + kScale);
-				CGFloat posheigth = height * (1.0 + kScale);
-				CGFloat posX = x - ((poswidth - width) / 2.0); 	
-				CGFloat posY = y - ((posheigth - height) / 2.0); 
+			{
+                // 확대
+//                                NSLog(@"currentDistance - initialDistance = %f", currentDistance - initialDistance);
+                zoomIn = YES;
+                if (zoomOut) {
+                    zoomOut = NO;
+                    orgRect = CGRectMake(x, y, width, height);
+                    initialDistance = currentDistance;
+                }
+                CGFloat d = currentDistance - initialDistance;
+                CGFloat poswidth  = orgRect.size.width + d;
+                CGFloat posheigth = orgRect.size.height + d;
+                CGFloat posX = orgRect.origin.x - d / 2.0;
+                CGFloat posY = orgRect.origin.y - d / 2.0;
 				
 				if (posX < 0) posX = 0;
 				if (posY < 0) posY = 0;
@@ -372,14 +386,22 @@
 				[self setNeedsDisplay];
 			}
 			else if (initialDistance - currentDistance   > kMiniimumPinchDelta)
-			{// 축소
+			{
+                // 축소
 				//				NSLog(@"initialDistance - currentDistance = %f", initialDistance - currentDistance);
 				
-				CGFloat poswidth  = width - (width * kScale);
-				CGFloat posheigth = height - (height * kScale);
-				CGFloat posX = x - ((poswidth - width) / 2.0); 	
-				CGFloat posY = y - ((posheigth - height) / 2.0); 
-				
+                zoomOut = YES;
+                if (zoomIn) {
+                    zoomIn = NO;
+                    orgRect = CGRectMake(x, y, width, height);
+                    initialDistance = currentDistance;
+                }
+                CGFloat d = initialDistance - currentDistance;
+                CGFloat poswidth  = orgRect.size.width - d;
+                CGFloat posheigth = orgRect.size.height - d;
+                CGFloat posX = orgRect.origin.x + d / 2.0;
+                CGFloat posY = orgRect.origin.y + d / 2.0;
+                
 				if (posX < 0) posX = 0;
 				if (posY < 0) posY = 0;
 				if (posX + poswidth > self.frame.size.width) poswidth = self.frame.size.width;
@@ -418,12 +440,15 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-	//	NSLog(@"Ended");
+//    NSLog(@"Ended");
 	initialDistance = 0;
-	twoTouch = FALSE;
-	oneTouch = FALSE;
-	endTouch = TRUE;
+	twoTouch = NO;
+	oneTouch = NO;
+	endTouch = YES;
 	checkPont = 0;
+    zoomOut = NO;
+    zoomIn = NO;
+    orgRect = CGRectMake(x, y, width, height);
 }
 
 #pragma mark -
