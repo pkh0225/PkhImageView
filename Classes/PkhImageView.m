@@ -166,9 +166,9 @@
 	[self addSubview:m_ScrollView];
 	
 	
-	m_pkhcutView = [[PkhCutView alloc] initWithFrame:aframe];
+    m_pkhcutView = [[PkhCutView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(aframe), CGRectGetHeight(aframe))];
     m_pkhcutView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	[self addSubview:m_pkhcutView];
+    [self addSubview:m_pkhcutView];
 	
 	self.cutMod = YES;
 	

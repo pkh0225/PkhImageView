@@ -509,12 +509,7 @@
 	//	NSLog(@"bgimage width = %f, height = %f", bgviewImage.size.width, bgviewImage.size.height);
 	
 	CGRect rect;
-	// 상태바가 있는지 체크해야 한다. 20pix만큼 밀린다. ㅡㅡ;
-	if ([UIApplication sharedApplication].statusBarHidden)
-		rect = CGRectMake(x + self.frame.origin.x, y + self.frame.origin.y, width, height);
-	else 
-		rect = CGRectMake(x + self.frame.origin.x, y + self.frame.origin.y + 20, width, height);
-	//	NSLog(@"self.frame.origin.y = %f", self.frame.origin.y);
+    rect = CGRectMake(x + self.frame.origin.x, y + self.frame.origin.y, width, height);
 	
 	CGImageRef tmp = CGImageCreateWithImageInRect( [bgviewImage CGImage], rect); 
 	

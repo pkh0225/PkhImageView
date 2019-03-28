@@ -23,6 +23,8 @@
 		44ABDD4C13971DD60098DF97 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44ABDD4B13971DD60098DF97 /* QuartzCore.framework */; };
 		44ABDEF113974AD30098DF97 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 44ABDEF013974AD30098DF97 /* blue.png */; };
 		4907412215D3826C00E4F40F /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4907412115D3826C00E4F40F /* MainWindow-iPad.xib */; };
+		5237AE81224C8AFF00B9301E /* LLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5237AE7F224C8AFF00B9301E /* LLViewController.m */; };
+		5237AE82224C8AFF00B9301E /* LLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5237AE80224C8AFF00B9301E /* LLViewController.xib */; };
 		52D3DD571ACE4D1A00F16B5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52D3DD561ACE4D1A00F16B5D /* Default-568h@2x.png */; };
 		52F241EC212A5788008D0DA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 52F241EB212A5788008D0DA3 /* README.md */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,9 @@
 		44ABDD4B13971DD60098DF97 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		44ABDEF013974AD30098DF97 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
 		4907412115D3826C00E4F40F /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		5237AE7E224C8AFF00B9301E /* LLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLViewController.h; sourceTree = "<group>"; };
+		5237AE7F224C8AFF00B9301E /* LLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLViewController.m; sourceTree = "<group>"; };
+		5237AE80224C8AFF00B9301E /* LLViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LLViewController.xib; sourceTree = "<group>"; };
 		52D3DD561ACE4D1A00F16B5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		52F241EB212A5788008D0DA3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ImageCutTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ImageCutTest-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -75,6 +80,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D3623240D0F684500981E51 /* ImageCutTestAppDelegate.h */,
+				1D3623250D0F684500981E51 /* ImageCutTestAppDelegate.m */,
 				2031924313AC5EB800850F5D /* PkhImageProcessing.h */,
 				2031924413AC5EB800850F5D /* PkhImageProcessing.m */,
 				4492F5FA139DDBC400B68CA2 /* PkhImageView.h */,
@@ -83,12 +90,13 @@
 				44ABDD3D13971B6B0098DF97 /* PkhCutView.m */,
 				44ABDD3813971B620098DF97 /* CGPointUtils.h */,
 				44ABDD3713971B620098DF97 /* CGPointUtils.c */,
-				1D3623240D0F684500981E51 /* ImageCutTestAppDelegate.h */,
-				1D3623250D0F684500981E51 /* ImageCutTestAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* ImageCutTestViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* ImageCutTestViewController.m */,
 				2899E5210DE3E06400AC0155 /* ImageCutTestViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				5237AE7E224C8AFF00B9301E /* LLViewController.h */,
+				5237AE7F224C8AFF00B9301E /* LLViewController.m */,
+				5237AE80224C8AFF00B9301E /* LLViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -180,7 +188,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 1010;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = LW3F5LSN8X;
@@ -215,6 +223,7 @@
 				2899E5220DE3E06400AC0155 /* ImageCutTestViewController.xib in Resources */,
 				44ABDEF113974AD30098DF97 /* blue.png in Resources */,
 				2031924B13AC5EDF00850F5D /* Image.png in Resources */,
+				5237AE82224C8AFF00B9301E /* LLViewController.xib in Resources */,
 				52D3DD571ACE4D1A00F16B5D /* Default-568h@2x.png in Resources */,
 				52F241EC212A5788008D0DA3 /* README.md in Resources */,
 				4907412215D3826C00E4F40F /* MainWindow-iPad.xib in Resources */,
@@ -232,6 +241,7 @@
 				1D3623260D0F684500981E51 /* ImageCutTestAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* ImageCutTestViewController.m in Sources */,
 				44ABDD3913971B620098DF97 /* CGPointUtils.c in Sources */,
+				5237AE81224C8AFF00B9301E /* LLViewController.m in Sources */,
 				44ABDD3E13971B6B0098DF97 /* PkhCutView.m in Sources */,
 				4492F5FC139DDBC400B68CA2 /* PkhImageView.m in Sources */,
 				2031924513AC5EB800850F5D /* PkhImageProcessing.m in Sources */,
@@ -257,11 +267,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ImageCutTest_Prefix.pch;
 				INFOPLIST_FILE = "ImageCutTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beta.ImageCutTest;
 				PRODUCT_NAME = ImageCutTest;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -279,11 +289,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ImageCutTest_Prefix.pch;
 				INFOPLIST_FILE = "ImageCutTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.beta.ImageCutTest;
 				PRODUCT_NAME = ImageCutTest;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
